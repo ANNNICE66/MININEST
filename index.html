@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MiniNest Space</title>
+  <meta name="description" content="MiniNest Space — 小而美、可專注又放鬆的多功能空間" />
+  <style>
+    :root{
+      /* Earth tone palette */
+      --bg: #f5f1e9;         /* 背景米色 */
+      --card: #fffaf1;       /* 卡片淺米 */
+      --text: #3b3027;       /* 文字深棕 */
+      --primary: #6b4f3b;    /* 主色深棕 */
+      --primary-2:#a98467;   /* 次色拿鐵棕 */
+      --accent:#c2b28f;      /* 點綴卡其 */
+      --muted:#e1d7c6;       /* 分隔線淺卡其 */
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Noto Sans TC", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    header{
+      position: sticky; top:0; z-index:10;
+      backdrop-filter: blur(6px);
+      background: color-mix(in oklab, var(--bg) 85%, white);
+      border-bottom: 1px solid var(--muted);
+    }
+    .container{max-width:980px;margin:auto;padding:16px}
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:0.5px;
+      color: var(--primary);
+    }
+    .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--primary-2)}
+    nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    nav button{
+      appearance:none;border:1px solid var(--accent); background:#fff; color:var(--primary);
+      padding:8px 14px; border-radius:999px; cursor:pointer; font-weight:600;
+      transition: transform .06s ease, background .2s;
+    }
+    nav button:hover{transform: translateY(-1px)}
+    nav button[aria-pressed="true"]{
+      background: var(--primary); color:#fff; border-color: var(--primary);
+    }
+    main{padding:28px 16px}
+    .card{
+      background: var(--card);
+      border:1px solid var(--muted);
+      border-radius:16px;
+      padding:22px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.04);
+    }
+    h1{font-size: clamp(28px, 4vw, 38px); margin:0 0 6px; color: var(--primary)}
+    .subtitle{color:#6b4f3bb3; margin:0 0 18px}
+    h2{margin:0 0 12px; color: var(--primary)}
+    ul{padding-left:20px;margin:0}
+    .grid{display:grid; gap:16px; grid-template-columns: 1fr}
+    @media (min-width: 720px){ .grid{grid-template-columns: 1fr 1fr} }
+    .price{
+      display:grid; gap:10px; margin:12px 0 0;
+      grid-template-columns: 1fr 110px;
+      padding:12px; border:1px dashed var(--accent); border-radius:12px; background:#fff;
+    }
+    .muted{color:#7b6a59}
+    footer{padding:28px 16px; border-top:1px solid var(--muted); color:#6b4f3bb3}
+    a{color:var(--primary); text-decoration-thickness: 2px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:var(--muted);color:#4a3d33;font-size:12px;font-weight:700;letter-spacing:.3px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <div>MiniNest Space</div>
+      </div>
+      <nav aria-label="主選單">
+        <button class="tab" data-tab="about" aria-pressed="true">空間介紹</button>
+        <button class="tab" data-tab="services" aria-pressed="false">服務介紹</button>
+        <button class="tab" data-tab="pricing" aria-pressed="false">收費介紹</button>
+        <button class="tab" data-tab="contact" aria-pressed="false">聯絡資訊</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 首屏 -->
+    <section class="card" id="hero">
+      <h1>MiniNest Space</h1>
+      <p class="subtitle">在小而溫暖的巢，專注創作、輕鬆遊玩、自在相聚。</p>
+      <span class="badge">大地色系・靜心舒適・交通便利</span>
+    </section>
+
+    <!-- 內容區（會切換） -->
+    <section id="about" class="panel card" style="margin-top:16px">
+      <h2>空間介紹</h2>
+      <div class="grid">
+        <div>
+          <p>
+            MiniNest 是一個「小而美」的多功能空間：白天適合閱讀與遠距工作，夜晚化身微型娛樂與交流場域。
+            採用大地色系與柔和燈光，提供穩定 Wi-Fi、舒適座椅與簡易茶水區，讓你在城市中找到一處安靜角落。
+          </p>
+          <ul>
+            <li>座位配置：單人專注位、雙人對坐位、可移動小圓桌</li>
+            <li>設備：高速 Wi-Fi、延長線、充電孔、簡易投影</li>
+            <li>氛圍：柔和黃光、隔音門簾、空氣清淨循環</li>
+          </ul>
+        </div>
+        <div>
+          <p><strong>使用情境</strong></p>
+          <ul>
+            <li>專注工作／自習、線上會議</li>
+            <li>小型桌遊／閱讀分享</li>
+            <li>一對一教學／諮詢</li>
+          </ul>
+          <p class="muted">* 空間非密閉式包廂，保有基本安靜禮儀即可。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="panel card hidden" style="margin-top:16px">
+      <h2>服務介紹</h2>
+      <ul>
+        <li><strong>即時入場</strong>：線上預約或現場掃碼，彈性計時。</li>
+        <li><strong>器材租借</strong>：基本文具、延長線、簡易投影（先到先得）。</li>
+        <li><strong>輕食茶水</strong>：自助取用，維持整潔即可。</li>
+        <li><strong>活動時段</strong>：不定期主題夜（閱讀會、桌遊夜、小型分享）。</li>
+      </ul>
+      <p class="muted">若需企業／課程包場，請來信洽詢，我們會協助客製時段與座位配置。</p>
+    </section>
+
+    <section id="pricing" class="panel card hidden" style="margin-top:16px">
+      <h2>收費介紹</h2>
+      <div class="price">
+        <div>
+          <strong>計時制</strong><br/>
+          平日與假日皆採計時，入場後系統自動計算；超過時段以 30 分鐘為計。
+        </div>
+        <div style="text-align:right"><strong>$50 / 30 分鐘</strong></div>
+      </div>
+      <div class="price">
+        <div>
+          <strong>加值</strong><br/>
+          投影設備、延長線等器材提供押金制；活動夜票價依主題公告。
+        </div>
+        <div style="text-align:right"><strong>依公告</strong></div>
+      </div>
+      <p class="muted">所有價格皆含稅；若有調整，以現場與官方公告為準。</p>
+    </section>
+
+    <section id="contact" class="panel card hidden" style="margin-top:16px">
+      <h2>聯絡資訊</h2>
+      <p>
+        歡迎任何合作、包場或活動提案。<br/>
+        Email：<a href="mailto:hello@mininest.space">hello@mininest.space</a><br/>
+        Instagram：<a href="#" aria-label="Instagram">即將上線</a><br/>
+        營業時段：12:00–21:00（活動夜視情況延長）
+      </p>
+      <p class="muted">地址與到站方式將於正式開幕前公布。</p>
+      <form onsubmit="event.preventDefault(); alert('感謝留言，我們已收到！');">
+        <label>留下訊息<br/>
+          <textarea required rows="4" style="width:100%;padding:10px;border:1px solid var(--accent);border-radius:10px;background:#fff"></textarea>
+        </label>
+        <div style="margin-top:10px">
+          <button style="background:var(--primary);color:#fff;border:none;padding:10px 16px;border-radius:10px;cursor:pointer">送出</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="y"></span> MiniNest Space — 小而美的多功能巢。</small>
+  </footer>
+
+  <script>
+    // 年份
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // 簡易分頁切換
+    const tabs = document.querySelectorAll('button.tab');
+    const panels = document.querySelectorAll('.panel');
+    function show(tabName){
+      panels.forEach(p=>p.classList.toggle('hidden', p.id !== tabName));
+      tabs.forEach(b=>b.setAttribute('aria-pressed', b.dataset.tab === tabName));
+      // 捲到內容頂端（避免手機上方被 header 擋住）
+      document.querySelector('main').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    tabs.forEach(btn => btn.addEventListener('click', () => show(btn.dataset.tab)));
+  </script>
+</body>
+</html>
