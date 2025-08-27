@@ -16,6 +16,16 @@
       --accent:#c2b28f;      /* 點綴卡其 */
       --muted:#e1d7c6;       /* 分隔線淺卡其 */
     }
+    /* Logo style */
+   .logo{
+     display:block;
+     margin: 4px auto 16px;
+     width: clamp(120px, 40%, 220px);
+     height:auto;
+     border-radius: 14px;
+     box-shadow: 0 6px 16px rgba(0,0,0,.08);
+   }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -101,6 +111,7 @@
       <h2>空間介紹</h2>
       <div class="grid">
         <div>
+          <img src="assets/logo.png" alt="MiniNest 標誌 Logo" class="logo">
           <p>
             MiniNest 是一個「小而美」的多功能空間：提供桌遊、電鋼琴、桌遊、互動設備、AI機器人下棋等設備提供讓人離開手機放鬆互動的空間。
             採用大地色系與柔和燈光，讓你在城市中找到一處放鬆療育的小角落。
